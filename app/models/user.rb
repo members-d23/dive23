@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
     unless user
       user = User.new(
-          #name:     auth.extra.raw_info.name,
+          name:     auth.extra.raw_info.name,
           provider: auth.provider,
           uid:      auth.uid,
           email:    auth.info.email ||= "#{auth.uid}-#{auth.provider}@example.com",
@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
 
     unless user
       user = User.new(
-          #name:     auth.info.nickname,
+          name:     auth.info.nickname,
           #image_url: auth.info.image,
           image_url: auth.extra.raw_info.profile_image_url_https,
           provider: auth.provider,
