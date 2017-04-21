@@ -7,6 +7,9 @@
           <p>投稿数： <%= @user.tweets.count %></p>
           <p>フォロー数： <%= @user.followed_users.count %></p>
           <p>フォロワー数： <%= @user.followers.count %></p>
+          <% unless @user == current_user%>
+          <%= render 'follow_form', user: @user %>
+          <%end%>
     </div>
   </div>
 </div>
