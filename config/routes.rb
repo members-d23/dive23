@@ -5,12 +5,15 @@ Rails.application.routes.draw do
   }
 
   resources :tweets do
-    resources :favorites, only: [:create, :destroy]
+    member do #本一覧画面からお気に入り登録をする
+    post "add", to: "favorites#create"
+    delete "delete", to: "favorites#destroy"
+    end
   end
-
 
   resources :users, only: [:show]
   resources :relationships, only: [:create, :destroy]
+
   root "tweets#index"
 
   # The priority is based upon order of creation: first created -> highest priority.

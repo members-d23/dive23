@@ -1,30 +1,23 @@
 class FavoritesController < ApplicationController
   before_action :authenticate_user!
-  respond_to :js
 
   def create
-    @tweet = Tweet.find(params[:tweet_id])
-    @favorite = Favorite.new(
-    tweet_id: params[:tweet_id],
-    user_id: current_user.id
-  )
+    @user_id = current_user.id
+    @tweet_id = Tweet.find(params[:id]).id
+    @favorite = Favorite.new(tweet_id: @tweet_id, user_id: @user_id )
 
-  if @favorite.save
-    render template: 'tweets/index'
-  else
-    render template: 'tweets/index'
+    if @favorite.save
+      redirect_to tweets_path
+    end
   end
 
   def destroy
-    @favorite = Favorite.find_by(tweet_id: params[:tweet_id], user_id: current_user.id)
-    @favorite.destroy
-    redirect_to tweet_path
-  end
+    @user_id = current_user.id
+    @tweet_id = Tweet.find(params[:id]).id
+    @favorite = Favorite.find_by(tweet_id: @tweet_id, user_id: @user_id )
 
-end
-
-private
-  def favorite_params
-    params.require(:favorite).permit(:tweet_id, :user_id)
+    if @favorite.destroy
+      redirect_to tweets_path
+    end
   end
 end
