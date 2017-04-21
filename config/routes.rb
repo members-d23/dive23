@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
 
 
+  get 'relationships/create'
+
+  get 'relationships/destroy'
+
   devise_for :users, controllers: {
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
   resources :tweets
   resources :users, only: [:show]
+  resources :relationships, only: [:create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
