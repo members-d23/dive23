@@ -1,0 +1,12 @@
+<% if current_user.already_favorited?(tweet) %>
+  <%= button_to 'お気に入りを取り消す', tweet_favorite_path(tweet.id), method: :delete %>
+<% else %>
+  <%= form_for [tweet, @favorite] do |f| %>
+    <% if @favorite.errors.any? %>
+      <% @favorite.errors.full_messages.each do |msg| %>
+        <li style="color: red;"><%= msg %></li>
+      <% end %>
+    <% end %>
+    <%= f.submit 'お気に入り' %>
+  <% end %>
+<% end %>
