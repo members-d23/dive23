@@ -75,9 +75,4 @@ class User < ActiveRecord::Base
   def unfollow!(other_user)
     relationships.find_by(followed_id: other_user.id).destroy
   end
-
-  def already_favorited?(tweet)
-    self.favorites.exists?(tweet_id: tweet.id)
-  end
-
 end

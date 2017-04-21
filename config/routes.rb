@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   }
 
   resources :tweets do
-    member do #本一覧画面からお気に入り登録をする
+    member do
     post "add", to: "favorites#create"
     delete "delete", to: "favorites#destroy"
     end
