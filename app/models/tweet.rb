@@ -4,5 +4,4 @@ class Tweet < ActiveRecord::Base
   has_many :favorite_users, through: :favorites, source: :user
 
   validates :content, presence: true, length: { in: 1..140}
-
 end
