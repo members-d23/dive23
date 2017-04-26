@@ -39,11 +39,11 @@ class TweetsController < ApplicationController
   # DELETE /tweets/1.json
   def delete
     @tweet = Tweet.find(params[:tweet_id])
-    @tweets = Tweet.all
   end
 
   def destroy
     @tweet.destroy
+    redirect_to tweets_url
   end
 
   private
