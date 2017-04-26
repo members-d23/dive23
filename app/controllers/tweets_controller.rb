@@ -39,11 +39,11 @@ class TweetsController < ApplicationController
   # DELETE /tweets/1.json
   def delete
     @tweet = Tweet.find(params[:tweet_id])
+    @tweets = Tweet.all
   end
 
   def destroy
     @tweet.destroy
-    redirect_to tweets_url
   end
 
   private
@@ -54,6 +54,6 @@ class TweetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tweet_params
-      params.require(:tweet).permit(:content)
+      params.require(:tweet).permit(:content).merge(user_id: current_user.id)
     end
 end
