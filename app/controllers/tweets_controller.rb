@@ -12,7 +12,6 @@ class TweetsController < ApplicationController
   # GET /tweets/1.json
   def show
   end
-
   # GET /tweets/new
   def new
     @tweet = Tweet.new
@@ -25,42 +24,26 @@ class TweetsController < ApplicationController
   # POST /tweets
   # POST /tweets.json
   def create
-    @tweet = Tweet.new(tweet_params)
-    @tweet.user_id = current_user.id
-
-    respond_to do |format|
-      if @tweet.save
-        format.html { redirect_to @tweet, notice: 'Tweet was successfully created.' }
-        format.json { render :show, status: :created, location: @tweet }
-      else
-        format.html { render :new }
-        format.json { render json: @tweet.errors, status: :unprocessable_entity }
-      end
-    end
+    @tweet = Tweet.create(tweet_params)
+    @tweets = Tweet.all
   end
 
   # PATCH/PUT /tweets/1
   # PATCH/PUT /tweets/1.json
   def update
-    respond_to do |format|
-      if @tweet.update(tweet_params)
-        format.html { redirect_to @tweet, notice: 'Tweet was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tweet }
-      else
-        format.html { render :edit }
-        format.json { render json: @tweet.errors, status: :unprocessable_entity }
-      end
-    end
+    @tweet.update(tweet_params)
+    @tweets = Tweet.all
   end
 
   # DELETE /tweets/1
   # DELETE /tweets/1.json
+  def delete
+    @tweet = Tweet.find(params[:tweet_id])
+  end
+
   def destroy
     @tweet.destroy
-    respond_to do |format|
-      format.html { redirect_to tweets_url, notice: 'Tweet was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to tweets_url
   end
 
   private
@@ -71,6 +54,6 @@ class TweetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tweet_params
-      params.require(:tweet).permit(:content)
+      params.require(:tweet).permit(:content).merge(user_id: current_user.id)
     end
 end

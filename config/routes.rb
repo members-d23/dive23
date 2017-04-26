@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   }
 
   resources :tweets do
+    get "delete"
     member do
     post "add", to: "favorites#create"
     delete "delete", to: "favorites#destroy"
