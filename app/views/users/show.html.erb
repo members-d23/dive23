@@ -16,6 +16,29 @@
 </div>
 
 <ul class="nav nav-tabs">
+<<<<<<< HEAD
+<<<<<<< HEAD
+ 	<li><a href="#sampleContentA" data-toggle="tab">ツイート</a></li>
+ 	<li class="active"><a href="#sampleContentB" data-toggle="tab">フォロー</a></li>
+ 	<li><a href="#sampleContentC" data-toggle="tab">フォロワー</a></li>
+ 	<li><a href="#sampleContentD" data-toggle="tab">お気に入り</a></li>
+ </ul>
+
+ <div class="tab-content">
+ 	<div class="tab-pane" id="sampleContentA">
+ 		<p><%= render @user.tweets %></p>
+ 	</div>
+ 	<div class="tab-pane active" id="sampleContentB">
+ 		<%= render @user.followed_users %>
+ 	</div>
+ 	<div class="tab-pane" id="sampleContentC">
+ 		<%= render @user.followers %>
+ 	</div>
+ 	<div class="tab-pane" id="sampleContentD">
+    <p><%= render @user.favorite_tweets %></p>
+ 	</div>
+ </div>
+=======
 	<li><a href="#sampleContentA" data-toggle="tab">ツイート</a></li>
 	<li class="active"><a href="#sampleContentB" data-toggle="tab">フォロー</a></li>
 	<li><a href="#sampleContentC" data-toggle="tab">フォロワー</a></li>
@@ -36,3 +59,27 @@
 		<p>タブＤの内容</p>
 	</div>
 </div>
+>>>>>>> efd948b61c14a1ffd51f94e2f46a9df99a08ddc4
+=======
+
+ 	<li><a href="#sampleContentA" data-toggle="tab">ツイート</a></li>
+ 	<li class="active"><a href="#sampleContentB" data-toggle="tab">フォロー</a></li>
+ 	<li><a href="#sampleContentC" data-toggle="tab">フォロワー</a></li>
+ 	<li><a href="#sampleContentD" data-toggle="tab">お気に入り</a></li>
+ </ul>
+
+ <div class="tab-content">
+ 	<div class="tab-pane" id="sampleContentA">
+ 		<%= render @user.tweets %>
+ 	</div>
+ 	<div class="tab-pane active" id="sampleContentB">
+ 		<%= render @user.followed_users %>
+ 	</div>
+ 	<div class="tab-pane" id="sampleContentC">
+ 		<%= render @user.followers %>
+ 	</div>
+ 	<div class="tab-pane" id="sampleContentD">
+    <%= render @user.favorite_tweets %>
+ 	</div>
+ </div>
+>>>>>>> 700cb5b99171d86b52d7a115e704e3b98980d0c5
