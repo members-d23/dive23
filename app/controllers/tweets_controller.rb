@@ -43,7 +43,7 @@ class TweetsController < ApplicationController
 
   def destroy
     @tweet.destroy
-    redirect_to tweets_url
+    @tweets = Tweet.all
   end
 
   private
