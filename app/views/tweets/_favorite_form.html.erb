@@ -1,0 +1,15 @@
+<div id="favorite_form_<%= tweet.id %>">
+  <% unless tweet.isfavorite?(current_user) %>
+    <%= link_to add_tweet_path(tweet), method: :post,remote: true do %>
+      <% if tweet.favorites.count==0 %>
+        <i class="fa fa-heart favorite-off"></i>
+      <% else %>
+        <i class="fa fa-heart favorite-off"> <%= tweet.favorites.count %></i>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= link_to delete_tweet_path(tweet), method: :delete,remote: true do %>
+      <i class="fa fa-heart favorite-on"> <%= tweet.favorites.count %></i>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,1 @@
+$("#favorite_form_"+"<%= @tweet.id %>").html("<%= escape_javascript(render partial: 'tweets/favorite_form', locals: { tweet: @tweet } ) %>")
