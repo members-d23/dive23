@@ -1,0 +1,30 @@
+<ul class="nav nav-tabs">
+  <% if @active_tab == nil || @active_tab.to_i == 1 %>
+    <li class="active">
+  <% else %>
+    <li>
+  <% end %>
+    <a href="#tab-content-tweet" data-toggle="tab">ツイート</a>
+  </li>
+  <% if @active_tab.to_i == 2 %>
+    <li class="active">
+  <% else %>
+    <li>
+  <% end %>
+    <a href="#tab-content-followed-users" data-toggle="tab">フォロー</a>
+  </li>
+  <% if @active_tab.to_i == 3 %>
+    <li class="active">
+  <% else %>
+    <li>
+  <% end %>
+    <a href="#tab-content-followers" data-toggle="tab">フォロワー</a>
+  </li>
+  <% if @active_tab.to_i == 4 %>
+    <li class="active">
+  <% else %>
+    <li>
+  <% end %>
+    <a href="#tab-content-favorites" data-toggle="tab">お気に入り</a>
+  </li>
+</ul>

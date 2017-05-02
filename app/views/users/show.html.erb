@@ -31,25 +31,7 @@
   </div>
 </div>
 
-
-<ul class="nav nav-tabs">
- 	<li><a href="#sampleContentA" data-toggle="tab">ツイート</a></li>
- 	<li class="active"><a href="#sampleContentB" data-toggle="tab">フォロー</a></li>
- 	<li><a href="#sampleContentC" data-toggle="tab">フォロワー</a></li>
- 	<li><a href="#sampleContentD" data-toggle="tab">お気に入り</a></li>
- </ul>
-
- <div class="tab-content">
- 	<div class="tab-pane" id="sampleContentA">
- 		<p><%= render @user.tweets %></p>
- 	</div>
- 	<div class="tab-pane active" id="sampleContentB">
- 		<%= render @user.followed_users %>
- 	</div>
- 	<div class="tab-pane" id="sampleContentC">
- 		<%= render @user.followers %>
- 	</div>
- 	<div class="tab-pane" id="sampleContentD">
-    <p><%= render @user.favorite_tweets %></p>
- 	</div>
- </div>
+<%= render 'users/tab' %>
+<div class="col-md-9 col-sm-10 col-xs-12 pull-right">
+  <%= render 'users/tab_content' %>
+</div>

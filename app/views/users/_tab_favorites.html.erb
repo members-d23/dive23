@@ -1,0 +1,11 @@
+<% if @active_tab.to_i == 4 %>
+  <div class="tab-pane active" id="tab-content-favorites">
+<% else %>
+  <div class="tab-pane" id="tab-content-favorites">
+<% end %>
+  <div id="favorites" class="favorites-index">
+    <ul class="page">
+      <%= render @user.favorite_tweets %>
+    </ul>
+  </div>
+</div>
