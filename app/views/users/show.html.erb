@@ -1,8 +1,24 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 col-md-offset-2 col-sm-10">
-      <h2><%= @user.name%>さんの詳細ページ</h2>
+    <div class="main-profile-up hidden-lg hidden-md col-sm-6 col-xs-6 pull-left">
+      <h2><%= @user.name%></h2>
+        <div class="avatar img-thumbnail">
           <%= profile_img(@user) %>
+        </div>
+          </br>
+          <p>投稿数： <%= @user.tweets.count %></p>
+          <p>フォロー数： <%= @user.followed_users.count %></p>
+          <p>フォロワー数： <%= @user.followers.count %></p>
+          <p>お気に入りTweets数： <%= @user.favorite_tweets.count %></p>
+          <% unless @user == current_user%>
+          <%= render 'follow_form', user: @user %>
+          <%end%>
+    </div>
+    <div class="main-profile col-md-3 hidden-xs hidden-sm pull-left">
+      <h2><%= @user.name%>さんの詳細</h2>
+        <div class="avatar img-thumbnail">
+          <%= profile_img(@user) %>
+        </div>
           </br>
           <p>投稿数： <%= @user.tweets.count %></p>
           <p>フォロー数： <%= @user.followed_users.count %></p>
@@ -14,6 +30,7 @@
     </div>
   </div>
 </div>
+
 
 <ul class="nav nav-tabs">
  	<li><a href="#sampleContentA" data-toggle="tab">ツイート</a></li>

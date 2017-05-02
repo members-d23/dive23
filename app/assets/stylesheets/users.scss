@@ -1,3 +1,32 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.nav-tabs > li, .nav-pills > li {
+    float:none;
+    display:inline-block;
+    *display:inline; /* ie7 fix */
+     zoom:1; /* hasLayout ie7 trigger */
+}
+
+.nav-tabs, .nav-pills {
+    text-align:center;
+}
+
+@media screen and (min-width: 992px) {
+  .nav-tabs {
+  position: relative;
+  padding-top: 150px;
+}
+}
+
+.main-profile {
+  position: absolute;
+  padding-top: 70px;
+  z-index: 10;
+}
+
+.main-profile-up {
+  padding-top:20px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
