@@ -1,0 +1,69 @@
+.user-panel {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  .back-blue {
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    top: 0;
+    left: 0;
+    background: #1da1f2;
+    border-radius: 3%;
+  }
+  .back-white {
+    position: absolute;
+    width: 100%;
+    height: 61%;
+    top: 40%;
+    left: 0;
+    background: white;
+    border-radius: 3%;
+  }
+  .back-white2 {
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    top: 40%;
+    left: 0;
+    background: white;
+  }
+  .user-link {
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+    :hover {
+      background: transparent;
+      text-decoration: underline;
+    }
+    .profile-image {
+      text-align: left;
+      position: absolute;
+      top: 30%;
+      left: 5%;
+      width: 25%;
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius:7px;
+        border: 2px solid white;
+      }
+    }
+    .user-field {
+      text-align: left;
+      position: absolute;
+      top: 60%;
+      left: 5%;
+    }
+  }
+  .follow-button {
+    position: absolute;
+    width: 25%;
+    height: 5%;
+    top: 42%;
+    left: 60%;
+  }
+}

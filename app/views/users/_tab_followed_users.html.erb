@@ -1,0 +1,11 @@
+<% if @active_tab.to_i == 2 %>
+  <div class="tab-pane active" id="tab-content-followed-users">
+<% else %>
+  <div class="tab-pane" id="tab-content-followed-users">
+<% end %>
+  <div id="followed-users" class="followed-users-index">
+    <ul class="page">
+      <%= render @user.followed_users %>
+    </ul>
+  </div>
+</div>
