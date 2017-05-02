@@ -5,7 +5,7 @@
 <% end %>
   <div id="favorites" class="favorites-index">
     <ul class="page">
-      <%= render @user.favorite_tweets %>
+      <%= render @user.favorite_tweets,{is_show: 1} %>
     </ul>
   </div>
 </div>

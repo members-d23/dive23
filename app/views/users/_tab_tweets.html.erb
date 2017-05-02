@@ -6,7 +6,7 @@
 <div class="container-child col-md-8 col-sm-10 col-xs-10">
   <div id="tweets" class="tweets-index">
     <ul class="page">
-      <%= render @user.tweets %>
+      <%= render @user.tweets,{is_show: 1} %>
     </ul>
   </div>
   <div id="tweet-edit-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

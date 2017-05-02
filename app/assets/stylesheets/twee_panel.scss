@@ -1,0 +1,51 @@
+.tweet-panel {
+  background-color: #fff;
+  border: solid 1px #f5f8fa;
+  width: 100%;
+  padding: 10px;
+  .btn-group {
+    .btn {
+      background-color: #fff;  
+    }
+    float: right;
+  }
+  .profile-image {
+    float: left;
+    img {
+      max-width: 50px;
+      height: auto;
+      border-radius:7px;
+      border: 2px solid white;
+    }
+  }
+  .tweet-content {
+    padding-left: 60px;
+    text-align: left;
+    .user-name {
+      font-weight: bold;
+      a {
+        color: #000;
+      }
+      :hover {
+        background: transparent;
+      　text-decoration: underline;
+      }
+    }
+  }
+  .favorite-button {
+    text-align: center;
+    a {
+      text-decoration: none;
+      background: transparent;
+      & :hover {
+        color: red;
+      }
+    }
+    .favorite-off {
+      color: lightgray;
+    }
+    .favorite-on {
+      color: red;
+    }
+  }
+}

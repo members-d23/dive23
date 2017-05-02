@@ -1,0 +1,30 @@
+<div class="tweet-panel">
+  <% if is_show == 0 && tweet.user.id == current_user.id %>
+    <div class="btn-group">
+      <button class="btn dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><%= link_to '編集', edit_tweet_path(tweet), remote: true %></li>
+        <li><%= link_to '削除', tweet_delete_path(tweet), remote: true %></li>
+      </ul>
+    </div>
+  <% end %>
+  <%= link_to user_path( tweet.user ) do %>
+    <div class="profile-image">
+      <%= profile_img_thumb(tweet.user) %>
+    </div>
+  <% end %>
+  <div class="tweet-content">
+    <div class="user-name">
+      <%= link_to user_path( tweet.user ) do %>
+        <p><%= tweet.user.name %></p>
+      <% end %>
+    </div>
+    <p><%= tweet.content %></p>
+  </div>
+  <div class="clearfix"></div>
+  <div class="favorite-button">
+    <%= render 'tweets/favorite_form', tweet: tweet %>
+  </div>
+</div>

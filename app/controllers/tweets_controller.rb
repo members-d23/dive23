@@ -5,7 +5,7 @@ class TweetsController < ApplicationController
   # GET /tweets
   # GET /tweets.json
   def index
-    @tweets = Tweet.all
+    @tweets = top_tweets
   end
 
   # GET /tweets/1
@@ -25,14 +25,14 @@ class TweetsController < ApplicationController
   # POST /tweets.json
   def create
     @tweet = Tweet.create(tweet_params)
-    @tweets = Tweet.all
+    @tweets = top_tweets
   end
 
   # PATCH/PUT /tweets/1
   # PATCH/PUT /tweets/1.json
   def update
     @tweet.update(tweet_params)
-    @tweets = Tweet.all
+    @tweets = top_tweets
   end
 
   # DELETE /tweets/1
@@ -43,7 +43,7 @@ class TweetsController < ApplicationController
 
   def destroy
     @tweet.destroy
-    @tweets = Tweet.all
+    @tweets = top_tweets
   end
 
   private
@@ -55,5 +55,9 @@ class TweetsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def tweet_params
       params.require(:tweet).permit(:content).merge(user_id: current_user.id)
+    end
+
+    def top_tweets
+      Tweet.find_by_sql(['select * from tweets where user_id = ? or user_id in (select followed_id from relationships where follower_id=?) order by created_at desc',current_user, current_user])
     end
 end
