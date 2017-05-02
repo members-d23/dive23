@@ -1,0 +1,43 @@
+<div class="current_user-panel">
+  <div class="back-blue"></div>
+  <div class="back-white"></div>
+  <div class="back-white2"></div>
+  <div class="user-link">
+    <%= link_to user_path( user ) do %>
+      <div class="profile-image">
+        <%= profile_img_thumb(user) %>
+      </div>
+      <div class="user-field">
+        <%= user.name %>
+      </div>
+    <% end %>
+  </div>
+  <div class="user-status">
+    <ul>
+      <li>
+        <div>
+          <%= link_to user_path( user, active_tab: 1 ) do %>
+            <span class="status-title">ツイート</span>
+            <span class="status-count"><%= user.tweets.count %></span>
+          <% end %>
+        </div>
+      </li>
+      <li>
+        <div>
+          <%= link_to user_path( user, active_tab: 2 ) do %>
+            <span class="status-title">フォロー</span>
+            <span class="status-count"><%= user.followed_users.count %></span>
+          <% end %>
+        </div>
+      </li>
+      <li>
+        <div>
+          <%= link_to user_path( user, active_tab: 3 ) do %>
+            <span class="status-title">フォロワー</span>
+            <span class="status-count"><%= user.followers.count %></span>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
