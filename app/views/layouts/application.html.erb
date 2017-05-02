@@ -6,7 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body style="padding-top:70px;background:#f5f8fa">
+<% if user_signed_in? %>
+  <body style="padding-top:70px;background:#f5f8fa">
+<% else %>
+  <body style="background:#f5f8fa">
+<% end %>
 
   <% if user_signed_in? %>
     <%= render 'layouts/header' %>
